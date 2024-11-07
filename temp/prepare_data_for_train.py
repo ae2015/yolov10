@@ -1,13 +1,13 @@
 import os, sys
-os.chdir("/Users/alex/Documents/Code/yolov10")
+os.chdir("/content/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
 sys.path.append('.')
 
 from ultralytics import settings
 
 # Update the datasets directory setting
-settings.update({"datasets_dir": "."})
+settings.update({"datasets_dir": "/content/datasets"}) # settings.update({"datasets_dir": "."})
 
-from ultralytics import YOLO  #  Reads settings, must follow the settings update!
+from ultralytics import YOLO  #  Reads settings
 from datetime import datetime
 
 from datasets import load_dataset, DownloadMode
@@ -43,7 +43,8 @@ print(dataset)
 
 # Create the folders to hold the data in YOLO training format
 
-dataset_root_dir = "temp/data/try1"
+dataset_root_dir = "/content/datasets/try1"
+# dataset_root_dir = "temp/data/try1"
 dataset_folders = {
     "images" : {
         "train" : "images/train",
@@ -76,9 +77,9 @@ config_yaml_string = (
     "#     3) list: [path/to/imgs1, path/to/imgs2, ..]\n" +
     "#\n" +
     f"path: {dataset_root_dir} # dataset root dir\n" +
-    f"train: {dataset_folders["images"]["train"]} # train images (relative to 'path')\n"
-    f"val: {dataset_folders["images"]["val"]} # val images (relative to 'path')\n" +
-    f"test: {dataset_folders["images"]["test"]} # test images (optional)\n" +
+    f"train: {dataset_folders['images']['train']} # train images (relative to 'path')\n"
+    f"val: {dataset_folders['images']['val']} # val images (relative to 'path')\n" +
+    f"test: {dataset_folders['images']['test']} # test images (optional)\n" +
     "\n" +
     "# Classes\n" +
     "names:\n" +
