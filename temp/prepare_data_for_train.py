@@ -1,11 +1,12 @@
 import os, sys
 os.chdir("/content/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
 sys.path.append('.')
+os.environ['HF_HOME'] = "/content/gdrive/MyDrive/cache/huggingface/datasets"
 
 from ultralytics import settings
 
 # Update the datasets directory setting
-settings.update({"datasets_dir": "/content/datasets"}) # settings.update({"datasets_dir": "."})
+settings.update({"datasets_dir": "/content/gdrive/MyDrive/datasets"})
 
 from ultralytics import YOLO  #  Reads settings
 from datetime import datetime
@@ -43,7 +44,7 @@ print(dataset)
 
 # Create the folders to hold the data in YOLO training format
 
-dataset_root_dir = "/content/datasets/try1"
+dataset_root_dir = "/content/gdrive/MyDrive/datasets/try1"
 # dataset_root_dir = "temp/data/try1"
 dataset_folders = {
     "images" : {
