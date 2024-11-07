@@ -210,6 +210,16 @@ def non_max_suppression(
     # Checks
     assert 0 <= conf_thres <= 1, f"Invalid Confidence threshold {conf_thres}, valid values are between 0.0 and 1.0"
     assert 0 <= iou_thres <= 1, f"Invalid IoU {iou_thres}, valid values are between 0.0 and 1.0"
+
+    # BUGFIX: INSERTED THE NEXT TWO LINES OF CODE TO FIX EXCEPTION
+    #     AttributeError: 'dict' object has no attribute 'shape'
+    # IN BELOW LINE
+    #     bs = prediction.shape[0]  # batch size
+    # AS SUGGESTED IN
+    #     https://github.com/ultralytics/ultralytics/issues/13587#issuecomment-2172588980
+    if isinstance(prediction, dict) and 'one2one' in prediction:
+        prediction = prediction['one2one']
+
     if isinstance(prediction, (list, tuple)):  # YOLOv8 model in validation model, output = (inference_out, loss_out)
         prediction = prediction[0]  # select only inference output
 
