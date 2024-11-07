@@ -44,7 +44,7 @@ print(dataset)
 
 # Create the folders to hold the data in YOLO training format
 
-dataset_root_dir = "/content/gdrive/MyDrive/datasets/try1"
+dataset_root_dir = "/content/gdrive/MyDrive/datasets/try2"
 # dataset_root_dir = "temp/data/try1"
 dataset_folders = {
     "images" : {
@@ -100,9 +100,9 @@ dataset_split_names = {
     "test"  : "test"
 }
 dataset_split_sizes = {
-    "train" : 10, # 69375,
-    "val"   : 10, # 6489,
-    "test"  : 10  # 4999
+    "train" : 10000, # 69375,
+    "val"   : 1000,  # 6489,
+    "test"  : 1000   # 4999
 }
 for split, s_name in dataset_split_names.items():
     # for d_index, datum in tqdm(enumerate(dataset[split_name]), total = len(dataset[split_name])):

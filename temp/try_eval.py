@@ -1,12 +1,12 @@
 import os, sys
 os.environ['YOLO_VERBOSE'] = 'False'
-os.chdir("/content/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
+os.chdir("/content/gdrive/MyDrive/code/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
 sys.path.append('.')
 
 from ultralytics import settings
 
 # Update the datasets directory setting
-settings.update({"datasets_dir": "/content/datasets"}) # settings.update({"datasets_dir": "."})
+settings.update({"datasets_dir": "/content/gdrive/MyDrive/datasets"}) # settings.update({"datasets_dir": "."})
 
 from ultralytics import YOLO  #  Reads settings
 from ultralytics.engine.results import Results
@@ -114,7 +114,7 @@ print(dataset)
 # Load a pre-trained YOLOv10n model fine-tuned on DocLayNet
 # From https://huggingface.co/omoured/YOLOv10-Document-Layout-Analysis
 
-model = YOLO("/content/yolov10/runs/detect/train/weights/best.pt")
+model = YOLO("/content/gdrive/MyDrive/code/yolov10/runs/detect/train2/weights/best.pt")
 # model = YOLO("huggingface-omoured-DocLayNet-yolov10m_best.pt")
 # model = torch.hub.load("ultralytics/yolov5", "yolov5s")
 
