@@ -1,5 +1,5 @@
 import os, sys
-os.chdir("/content/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
+os.chdir("/content/gdrive/MyDrive/code/yolov10") # os.chdir("/Users/alex/Documents/Code/yolov10")
 sys.path.append('.')
 os.environ['HF_HOME'] = "/content/gdrive/MyDrive/cache/huggingface/datasets"
 
